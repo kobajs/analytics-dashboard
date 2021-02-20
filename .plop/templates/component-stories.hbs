@@ -1,0 +1,17 @@
+import { {{ pascalCase name }}, {{ pascalCase name }}Props } from '../{{ pascalCase name }}'
+import { Story } from '@storybook/react/types-6-0'
+
+const Template: Story<{{ pascalCase name }}Props> = (args) => <{{ pascalCase name }} {...args} />
+
+export const Primary = Template.bind({})
+
+Primary.args = {
+  label: 'Test Label',
+}
+
+const {{ pascalCase name }}Story = {
+  title: 'Components/{{ pascalCase name }}',
+  component: {{ pascalCase name }},
+}
+
+export default {{ pascalCase name }}Story
