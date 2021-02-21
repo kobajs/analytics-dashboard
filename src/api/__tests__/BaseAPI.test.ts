@@ -1,5 +1,9 @@
 import { BaseAPI } from '../BaseAPI'
 
+jest.mock('axios', () => ({
+  create: jest.fn(() => 'instance'),
+}))
+
 describe('BaseAPI', () => {
   afterEach(() => {
     delete process.env.REACT_APP_API_URL
@@ -20,6 +24,14 @@ describe('BaseAPI', () => {
 
     const baseAPI = new BaseAPI()
     expect(baseAPI.token).toBe('My Token')
+  })
+
+  it('should create a HTTP client instance', async () => {
+    process.env.REACT_APP_API_URL = 'https://youtube.com'
+    process.env.REACT_APP_API_TOKEN = 'My Token'
+
+    const baseAPI = new BaseAPI()
+    expect(baseAPI.instance).toBe('instance')
   })
 
   it('should throw an error if REACT_APP_API_URL is undefined', async () => {
