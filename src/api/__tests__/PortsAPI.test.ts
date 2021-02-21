@@ -1,5 +1,5 @@
 import { PortsAPI } from '../PortsAPI'
-const mockInstanceGet = jest.fn(() => ({ data: [] }))
+const mockInstanceGet = jest.fn((path: string) => ({ data: [] }))
 
 jest.mock('axios', () => ({
   create: jest.fn(() => ({
@@ -8,8 +8,8 @@ jest.mock('axios', () => ({
 }))
 
 describe('PortsAPI', () => {
-  it('should use instance get on getAllPorts()', async () => {
+  it('should use instance get on getAllPorts() with path argurment', async () => {
     await new PortsAPI().getAllPorts()
-    expect(mockInstanceGet).toHaveBeenCalled()
+    expect(mockInstanceGet).toHaveBeenCalledWith('/ports')
   })
 })
