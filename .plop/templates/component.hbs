@@ -1,15 +1,17 @@
 import { FC } from 'react'
 
-import * as S from './{{ pascalCase name }}.styles'
+import { use{{ pascalCase name }}Styles } from './{{ pascalCase name }}.styles'
 
 export type {{ pascalCase name }}Props = {
   label: string
 }
 
 export const {{ pascalCase name }}: FC<{{ pascalCase name }}Props> = ({ label }) => {
+  const classes = use{{ pascalCase name }}Styles()
+
   return (
-    <S.Wrapper>
+    <div className={classes.root}>
       <button>{label}</button>
-    </S.Wrapper>
+    </div>
   )
 }

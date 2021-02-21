@@ -35,5 +35,10 @@ module.exports = {
         'components/{{ pascalCase name }}/__stories__/{{ pascalCase name }}.stories.tsx',
       templateFile: 'templates/component-stories.hbs',
     },
+    {
+      type: 'append',
+      path: 'components/index.ts',
+      template: "export * from './{{ pascalCase name }}'\n",
+    },
   ],
 }
