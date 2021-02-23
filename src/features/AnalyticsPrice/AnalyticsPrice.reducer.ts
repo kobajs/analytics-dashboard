@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import {
   createGenericSlice,
   GenericState,
@@ -12,7 +12,9 @@ interface AnalyticsPriceState {
     from: Date;
     to: Date;
   };
-  marketPositions: Array<string>;
+  selectedMarketPositions: {
+    [k: string]: boolean;
+  };
   marketRates: Array<MarketRate>;
 }
 
@@ -24,7 +26,11 @@ const initialState: State = {
       from: new Date(),
       to: new Date(),
     },
-    marketPositions: [],
+    selectedMarketPositions: {
+      low: false,
+      mean: false,
+      high: false,
+    },
     marketRates: [],
   },
   status: "finished",
@@ -56,7 +62,18 @@ export const getMarketRates = createAsyncThunk<
 const analyticsPriceSlice = createGenericSlice({
   name: "analyticsPrice",
   initialState,
-  reducers: {},
+  reducers: {
+    changeSelectedMarketPositions(
+      state,
+      action: PayloadAction<{
+        name: string;
+        checked: boolean;
+      }>
+    ) {
+      state.data.selectedMarketPositions[action.payload.name] =
+        action.payload.checked;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getMarketRates.pending, (state, { payload }) => {
       state.status = "loading";
@@ -76,5 +93,9 @@ const analyticsPriceSlice = createGenericSlice({
 });
 
 const { actions, reducer } = analyticsPriceSlice;
+
+const { changeSelectedMarketPositions } = actions;
+
+export { changeSelectedMarketPositions };
 
 export default reducer;

@@ -12,7 +12,7 @@ Primary.args = {
 };
 
 const MarketRateChartStory = {
-  title: "Features/MarketRateAnalytics/MarketRateChart",
+  title: "Features/AnalyticsPrice/MarketRateChart",
   component: MarketRateChart,
 };
 
