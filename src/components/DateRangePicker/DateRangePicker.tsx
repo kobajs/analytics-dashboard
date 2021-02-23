@@ -1,26 +1,49 @@
-import { FC, useState } from 'react'
-import { DateRange } from 'react-date-range'
-import 'react-date-range/dist/styles.css' // main style file
-import 'react-date-range/dist/theme/default.css' // theme css file
+import { FC } from 'react'
+import DateFnsUtils from '@date-io/moment'
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+  KeyboardDatePickerProps,
+} from '@material-ui/pickers'
 
 import { useDateRangePickerStyles } from './DateRangePicker.styles'
 
-export type DateRangePickerProps = {}
+export type DateRangePickerProps = {
+  from: Pick<KeyboardDatePickerProps, 'value' | 'onChange'>
+  to: Pick<KeyboardDatePickerProps, 'value' | 'onChange'>
+}
 
-export const DateRangePicker: FC<DateRangePickerProps> = () => {
+export const DateRangePicker: FC<DateRangePickerProps> = ({ from, to }) => {
   const classes = useDateRangePickerStyles()
-  const [selectionRange, setSelectionRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ])
 
-  const handleSelect = (item) => {
-    console.log(item)
-    setSelectionRange([item.selection])
-  }
-
-  return <DateRange ranges={selectionRange} onChange={handleSelect} />
+  return (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <KeyboardDatePicker
+        className={classes.datePicker}
+        disableToolbar
+        variant="inline"
+        format="yyyy-MM-DD"
+        id="date-picker-from"
+        label="From"
+        inputVariant="outlined"
+        KeyboardButtonProps={{
+          'aria-label': 'Start Date',
+        }}
+        {...from}
+      />
+      <KeyboardDatePicker
+        className={classes.datePicker}
+        disableToolbar
+        variant="inline"
+        format="yyyy-MM-DD"
+        id="date-picker-to"
+        label="To"
+        inputVariant="outlined"
+        KeyboardButtonProps={{
+          'aria-label': 'End Date',
+        }}
+        {...to}
+      />
+    </MuiPickersUtilsProvider>
+  )
 }
