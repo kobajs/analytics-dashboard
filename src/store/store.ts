@@ -5,6 +5,12 @@ declare module "react-redux" {
   interface DefaultRootState extends RootState {}
 }
 
+declare module "@reduxjs/toolkit" {
+  interface AsyncThunkConfig {
+    state: RootState;
+  }
+}
+
 export const store = configureStore({
   reducer: rootReducer,
 });
