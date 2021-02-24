@@ -1,12 +1,12 @@
-import { shallowEqual, useSelector } from "react-redux";
+import { shallowEqual, useSelector } from 'react-redux';
 
 export const useAvailablePortsSelector = () =>
   useSelector(
     ({ ports }) => ({
       availablePorts: ports.data.availablePorts,
-      isLoading: ports.status === "loading",
+      isLoading: ports.status === 'loading',
     }),
-    shallowEqual
+    shallowEqual,
   );
 
 export const useSelectedPortsSelector = () =>
@@ -15,5 +15,5 @@ export const useSelectedPortsSelector = () =>
       origin: ports.data.origin,
       destination: ports.data.destination,
     }),
-    shallowEqual
+    shallowEqual,
   );

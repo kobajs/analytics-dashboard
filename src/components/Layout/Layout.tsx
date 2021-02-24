@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { useLayoutStyles } from './Layout.styles'
+import { useLayoutStyles } from './Layout.styles';
 
 export const Layout: FC = ({ children }) => {
-  const classes = useLayoutStyles()
+  const classes = useLayoutStyles();
 
-  return <div className={classes.root}>{children}</div>
-}
+  return <div className={classes.root}>{children}</div>;
+};

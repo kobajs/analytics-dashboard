@@ -1,11 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./rootReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './rootReducer';
 
-declare module "react-redux" {
+declare module 'react-redux' {
   interface DefaultRootState extends RootState {}
 }
 
-declare module "@reduxjs/toolkit" {
+declare module '@reduxjs/toolkit' {
   interface AsyncThunkConfig {
     state: RootState;
   }

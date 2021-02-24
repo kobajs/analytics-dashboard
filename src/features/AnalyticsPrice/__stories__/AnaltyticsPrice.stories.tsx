@@ -1,17 +1,15 @@
-import { AnalyticsPrice, AnalyticsPriceProps } from '../AnalyticsPrice'
-import { Story } from '@storybook/react/types-6-0'
+import { AnalyticsPrice, AnalyticsPriceProps } from '../AnalyticsPrice';
+import { Story } from '@storybook/react/types-6-0';
 
-const Template: Story<AnalyticsPriceProps> = (args) => (
-  <AnalyticsPrice {...args} />
-)
+const Template: Story<AnalyticsPriceProps> = (args) => <AnalyticsPrice {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 
-Primary.args = {}
+Primary.args = {};
 
 const AnalyticsPriceStory = {
   title: 'Features/AnalyticsPrice',
   component: AnalyticsPrice,
-}
+};
 
-export default AnalyticsPriceStory
+export default AnalyticsPriceStory;

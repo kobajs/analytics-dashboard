@@ -1,6 +1,6 @@
-import { Layout } from '../Layout'
-import { Story } from '@storybook/react/types-6-0'
-import { SelectDropdown } from '../../SelectDropdown'
+import { Layout } from '../Layout';
+import { Story } from '@storybook/react/types-6-0';
+import { SelectDropdown } from '../../SelectDropdown';
 
 const Template: Story = () => (
   <SelectDropdown
@@ -20,15 +20,15 @@ const Template: Story = () => (
       },
     ]}
   />
-)
+);
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 
-Primary.args = {}
+Primary.args = {};
 
 const LayoutStory = {
   title: 'Components/Layout',
   component: Layout,
-}
+};
 
-export default LayoutStory
+export default LayoutStory;

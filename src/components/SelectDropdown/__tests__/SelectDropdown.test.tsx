@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { SelectDropdown } from '../SelectDropdown'
+import { fireEvent, render, screen } from '@testing-library/react';
+import { SelectDropdown } from '../SelectDropdown';
 
 describe('SelectDropdown', () => {
   it('should render correctly', async () => {
@@ -20,12 +20,12 @@ describe('SelectDropdown', () => {
             value: 'Value Test 3',
           },
         ]}
-      />
-    )
+      />,
+    );
 
-    const buttonElement = getByRole('button')
-    expect(buttonElement).toBeInTheDocument()
-  })
+    const buttonElement = getByRole('button');
+    expect(buttonElement).toBeInTheDocument();
+  });
 
   it('should render options when SelectDropdown is clicked (mousedown)', async () => {
     const { getByRole } = render(
@@ -45,12 +45,12 @@ describe('SelectDropdown', () => {
             value: 'Value Test 3',
           },
         ]}
-      />
-    )
+      />,
+    );
 
-    const buttonElement = getByRole('button')
+    const buttonElement = getByRole('button');
 
-    fireEvent.mouseDown(buttonElement)
-    expect(screen.getAllByRole('option').length).toBe(3)
-  })
-})
+    fireEvent.mouseDown(buttonElement);
+    expect(screen.getAllByRole('option').length).toBe(3);
+  });
+});

@@ -1,1 +1,1 @@
-export const spacing = 8
+export const spacing = 8;

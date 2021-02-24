@@ -1,20 +1,14 @@
-import { useState } from 'react'
-import { Story } from '@storybook/react/types-6-0'
+import { useState } from 'react';
+import { Story } from '@storybook/react/types-6-0';
 
-import { SelectDropdown, SelectDropdownProps } from '../SelectDropdown'
+import { SelectDropdown, SelectDropdownProps } from '../SelectDropdown';
 
 const Template: Story<SelectDropdownProps> = (args) => {
-  const [value, setValue] = useState(args.options[0].value)
-  return (
-    <SelectDropdown
-      {...args}
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-    />
-  )
-}
+  const [value, setValue] = useState(args.options[0].value);
+  return <SelectDropdown {...args} value={value} onChange={(e) => setValue(e.target.value)} />;
+};
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 
 Primary.args = {
   label: 'Origin',
@@ -48,11 +42,11 @@ Primary.args = {
       label: `New York (USNYC)`,
     },
   ],
-}
+};
 
 const SelectDropdownStory = {
   title: 'Components/SelectDropdown',
   component: SelectDropdown,
-}
+};
 
-export default SelectDropdownStory
+export default SelectDropdownStory;

@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react'
-import moment from 'moment'
-import { DateRangePicker } from '../DateRangePicker'
+import { render } from '@testing-library/react';
+import moment from 'moment';
+import { DateRangePicker } from '../DateRangePicker';
 
 describe('DateRangePicker', () => {
   it('should render 2 Date Pickers correctly', () => {
@@ -14,11 +14,11 @@ describe('DateRangePicker', () => {
           value: moment(),
           onChange: (date) => date,
         }}
-      />
-    )
+      />,
+    );
 
-    expect(getAllByRole('textbox').length).toBe(2)
-    expect(getByLabelText('From')).toBeInTheDocument()
-    expect(getByLabelText('To')).toBeInTheDocument()
-  })
-})
+    expect(getAllByRole('textbox').length).toBe(2);
+    expect(getByLabelText('From')).toBeInTheDocument();
+    expect(getByLabelText('To')).toBeInTheDocument();
+  });
+});

@@ -1,20 +1,14 @@
-import { FC } from "react";
-import { SelectDropdown } from "../../components";
-import { usePortsSelection } from "./PortsSelection.hooks";
+import { FC } from 'react';
+import { SelectDropdown } from '../../components';
+import { usePortsSelection } from './PortsSelection.hooks';
 
-import { usePortsSelectionStyles } from "./PortsSelection.styles";
+import { usePortsSelectionStyles } from './PortsSelection.styles';
 
 export type PortsSelectionProps = {};
 
 export const PortsSelection: FC<PortsSelectionProps> = () => {
   const classes = usePortsSelectionStyles();
-  const {
-    isLoading,
-    options,
-    origin,
-    destination,
-    handlePortChange,
-  } = usePortsSelection();
+  const { isLoading, options, origin, destination, handlePortChange } = usePortsSelection();
 
   return (
     <div className={classes.root}>
@@ -23,14 +17,14 @@ export const PortsSelection: FC<PortsSelectionProps> = () => {
         options={options}
         value={origin}
         disabled={isLoading}
-        onChange={handlePortChange("origin")}
+        onChange={handlePortChange('origin')}
       />
       <SelectDropdown
         label="Destination"
         options={options}
         value={destination}
         disabled={isLoading}
-        onChange={handlePortChange("destination")}
+        onChange={handlePortChange('destination')}
       />
     </div>
   );
