@@ -10,19 +10,16 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
-import data from './__fixtures__/marketRates.json'
+import { useFilteredMarketRates } from '../AnalyticsPrice.selectors'
 
-export type MarketRateChartProps = {
-  label: string
-}
+export type MarketRateChartProps = {}
 
-export const MarketRateChart: FC<MarketRateChartProps> = ({ label }) => {
-  console.log(data)
+export const MarketRateChart: FC<MarketRateChartProps> = () => {
+  const { marketRates } = useFilteredMarketRates()
   return (
     <div>
-      <h1>My Chart</h1>
-      <ResponsiveContainer>
-        <LineChart width={500} height={300} data={data}>
+      <ResponsiveContainer width="100%" height="500px">
+        <LineChart width={500} height={300} data={marketRates}>
           <CartesianGrid vertical={false} />
           <XAxis
             dataKey="day"
