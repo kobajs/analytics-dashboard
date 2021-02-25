@@ -1,14 +1,14 @@
 import { createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import moment from 'moment';
 
 import { createGenericSlice, GenericState } from '../../store/createGenericSlice';
 import { MarketRate } from '../../entities/MarketRate';
 import { MarketRatesAPI } from '../../api/MarketRatesAPI';
 import { RootState } from '../../store';
-import { Moment } from 'moment';
 
 export interface AnalyticsPriceDates {
   from: string; // Used string instead of data to be a serializable data at reducer
-  to: string;   // https://redux.js.org/faq/organizing-state#can-i-put-functions-promises-or-other-non-serializable-items-in-my-store-state
+  to: string; // https://redux.js.org/faq/organizing-state#can-i-put-functions-promises-or-other-non-serializable-items-in-my-store-state
 }
 
 interface AnalyticsPriceState {
@@ -21,18 +21,16 @@ interface AnalyticsPriceState {
 
 type State = GenericState<AnalyticsPriceState>;
 
-const today = new Date().toISOString();
-
 const initialState: State = {
   data: {
     dates: {
-      from: today,
-      to: today,
+      from: moment().subtract(1, 'month').toISOString(),
+      to: moment().toISOString(),
     },
     selectedMarketPositions: {
-      low: false,
-      mean: false,
-      high: false,
+      low: true,
+      mean: true,
+      high: true,
     },
     marketRates: [],
   },

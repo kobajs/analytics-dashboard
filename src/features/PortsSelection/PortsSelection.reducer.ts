@@ -60,12 +60,11 @@ const portsSlice = createGenericSlice({
       state.data = {
         ...state.data,
         availablePorts: payload,
-        origin: payload[0].code,
-        destination: payload[1].code,
+        // origin: payload[0].code,
+        // destination: payload[1].code,
+        origin: 'CNSGH',
+        destination: 'NLRTM',
       };
-      // state.data.availablePorts = payload
-      // state.data.origin = payload[0].code
-      // state.data.destination = payload[1].code
     });
     builder.addCase(getAllAvailablePorts.rejected, (state, { payload }) => {
       state.status = 'error';

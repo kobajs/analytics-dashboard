@@ -4,6 +4,7 @@ import { PortsSelection } from '../PortsSelection';
 import { useAnalyticsPrice } from './AnalyticsPrice.hooks';
 
 import { useAnalyticsPriceStyles } from './AnalyticsPrice.styles';
+import { MarketPositions } from './MarketPositions';
 import { MarketRateChart } from './MarketRateChart';
 
 export type AnalyticsPriceProps = {};
@@ -25,6 +26,7 @@ export const AnalyticsPrice: FC<AnalyticsPriceProps> = () => {
           onChange: handleDateChange('to'),
         }}
       />
+      <MarketPositions />
       <MarketRateChart />
     </div>
   );

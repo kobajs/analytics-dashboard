@@ -7,9 +7,10 @@ export type MarketRateChartProps = {};
 
 export const MarketRateChart: FC<MarketRateChartProps> = () => {
   const { marketRates } = useFilteredMarketRates();
+
   return (
-    <div>
-      <ResponsiveContainer width="100%" height="500px">
+    <div style={{ height: 300 }}>
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart width={500} height={300} data={marketRates}>
           <CartesianGrid vertical={false} />
           <XAxis dataKey="day" tickFormatter={(value) => moment(value).format('MMM DD')} interval={7} />

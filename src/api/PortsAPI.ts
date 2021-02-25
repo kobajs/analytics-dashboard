@@ -9,7 +9,6 @@ export class PortsAPI extends BaseAPI {
       const result = await this.instance.get(this.path);
       return result.data;
     } catch (e) {
-      console.log(e);
       throw e;
     }
   }
