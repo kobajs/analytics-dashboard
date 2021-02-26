@@ -1,11 +1,14 @@
 import { FC } from 'react';
-import { ThemeOptions, ThemeProvider as MuiThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeOptions, ThemeProvider as MuiThemeProvider } from '@material-ui/core';
 import { defaultTheme } from '../defaultTheme/defaultTheme';
 
 export type ThemeProviderProps = {
-  theme?: ThemeOptions;
+  theme?: Partial<ThemeOptions>;
 };
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = defaultTheme }) => (
-  <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+  <MuiThemeProvider theme={theme}>
+    <CssBaseline />
+    {children}
+  </MuiThemeProvider>
 );

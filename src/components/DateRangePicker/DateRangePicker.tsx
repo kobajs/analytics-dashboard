@@ -13,33 +13,35 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({ from, to }) => {
   const classes = useDateRangePickerStyles();
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        className={classes.datePicker}
-        disableToolbar
-        variant="inline"
-        format="yyyy-MM-DD"
-        id="date-picker-from"
-        label="From"
-        inputVariant="outlined"
-        KeyboardButtonProps={{
-          'aria-label': 'Start Date',
-        }}
-        {...from}
-      />
-      <KeyboardDatePicker
-        className={classes.datePicker}
-        disableToolbar
-        variant="inline"
-        format="yyyy-MM-DD"
-        id="date-picker-to"
-        label="To"
-        inputVariant="outlined"
-        KeyboardButtonProps={{
-          'aria-label': 'End Date',
-        }}
-        {...to}
-      />
-    </MuiPickersUtilsProvider>
+    <div className={classes.root}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <KeyboardDatePicker
+          className={classes.datePicker}
+          disableToolbar
+          variant="inline"
+          format="yyyy-MM-DD"
+          id="date-picker-from"
+          label="From"
+          inputVariant="outlined"
+          KeyboardButtonProps={{
+            'aria-label': 'Start Date',
+          }}
+          {...from}
+        />
+        <KeyboardDatePicker
+          className={classes.datePicker}
+          disableToolbar
+          variant="inline"
+          format="yyyy-MM-DD"
+          id="date-picker-to"
+          label="To"
+          inputVariant="outlined"
+          KeyboardButtonProps={{
+            'aria-label': 'End Date',
+          }}
+          {...to}
+        />
+      </MuiPickersUtilsProvider>
+    </div>
   );
 };

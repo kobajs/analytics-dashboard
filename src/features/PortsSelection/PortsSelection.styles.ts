@@ -2,6 +2,9 @@ import { makeStyles } from '@material-ui/core';
 
 export const usePortsSelectionStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1),
+    '& > *': {
+      marginRight: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
   },
 }));
