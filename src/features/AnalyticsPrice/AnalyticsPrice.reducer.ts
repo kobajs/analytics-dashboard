@@ -11,7 +11,7 @@ export interface AnalyticsPriceDates {
   to: string; // https://redux.js.org/faq/organizing-state#can-i-put-functions-promises-or-other-non-serializable-items-in-my-store-state
 }
 
-interface AnalyticsPriceState {
+export interface AnalyticsPriceState {
   dates: AnalyticsPriceDates;
   selectedMarketPositions: {
     [k: string]: boolean;

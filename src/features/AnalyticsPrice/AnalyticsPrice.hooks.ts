@@ -16,7 +16,7 @@ export const useAnalyticsPrice = () => {
 
   useEffect(() => {
     dispatch(getMarketRates());
-  }, [origin, destination]);
+  }, [dispatch, origin, destination]);
 
   return {
     from: dates.from,
