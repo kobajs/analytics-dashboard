@@ -24,4 +24,10 @@ describe('PortsAPI', () => {
     await new PortsAPI().getAllPorts();
     expect(mockInstanceGet).toHaveBeenCalledWith('/ports');
   });
+
+  it('should throw error if something goes wrong', async () => {
+    (mockInstanceGet as jest.Mock).mockImplementationOnce(() => new Promise((res, rej) => rej(new Error('error'))));
+
+    await expect(new PortsAPI().getAllPorts()).rejects.toEqual(new Error('error'));
+  });
 });

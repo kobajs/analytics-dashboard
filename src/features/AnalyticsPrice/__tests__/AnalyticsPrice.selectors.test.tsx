@@ -63,6 +63,12 @@ describe('useFilteredMarketRates', () => {
         low: 1037,
         high: 2436,
       },
+      {
+        day: '2021-01-03',
+        mean: 1615,
+        low: 1037,
+        high: 2436,
+      },
     ];
 
     const dates: AnalyticsPriceDates = {

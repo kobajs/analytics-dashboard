@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { FC } from 'react';
+import moment from 'moment';
 import { Provider } from 'react-redux';
 import { store } from '../../../store';
 import { useAnalyticsPrice } from '../AnalyticsPrice.hooks';
@@ -7,7 +8,8 @@ import * as AnalyticsPriceReducer from '../AnalyticsPrice.reducer';
 import * as PortsReducer from '../../PortsSelection/PortsSelection.reducer';
 import { act } from 'react-dom/test-utils';
 
-(AnalyticsPriceReducer.getMarketRates as any) = jest.fn(() => ({ type: 'test' }));
+(AnalyticsPriceReducer.getMarketRates as any) = jest.fn(() => ({ type: 'GET_MARKET_RATES' }));
+(AnalyticsPriceReducer.changeDate as any) = jest.fn(() => ({ type: 'CHANGE_DATE' }));
 
 jest.mock('../AnalyticsPrice.selectors', () => ({
   useAnalyticsPriceDates: jest.fn(() => ({
@@ -60,5 +62,15 @@ describe('useAnalyticsPrice', () => {
     });
 
     expect(AnalyticsPriceReducer.getMarketRates).toBeCalledTimes(2);
+  });
+
+  it('should call changeDate when handleDateChange is called', () => {
+    const { result } = renderHook(() => useAnalyticsPrice(), {
+      wrapper,
+    });
+
+    result.current.handleDateChange('from')(moment());
+
+    expect(AnalyticsPriceReducer.changeDate).toHaveBeenCalled();
   });
 });
