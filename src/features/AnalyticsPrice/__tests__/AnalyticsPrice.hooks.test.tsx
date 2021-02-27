@@ -64,7 +64,7 @@ describe('useAnalyticsPrice', () => {
     expect(AnalyticsPriceReducer.getMarketRates).toBeCalledTimes(2);
   });
 
-  it('should call changeDate when handleDateChange is called', () => {
+  it('should change date on store when some date is changed', () => {
     const { result } = renderHook(() => useAnalyticsPrice(), {
       wrapper,
     });

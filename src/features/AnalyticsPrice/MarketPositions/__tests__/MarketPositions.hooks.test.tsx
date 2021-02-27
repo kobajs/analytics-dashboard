@@ -12,7 +12,7 @@ import * as AnalyticsPriceReducer from '../../AnalyticsPrice.reducer';
 const wrapper: FC = ({ children }) => <ReactRedux.Provider store={store}>{children}</ReactRedux.Provider>;
 
 describe('useMarketPositions', () => {
-  it('should return selectedMarketPositions', () => {
+  it('should return selected market positions', () => {
     const selectedMarketPositions = {
       low: false,
       mean: false,
@@ -28,7 +28,7 @@ describe('useMarketPositions', () => {
     expect(result.current.selectedMarketPositions).toMatchObject(selectedMarketPositions);
   });
 
-  it('should call changeSelectedMarketPositions when handleChange is called', () => {
+  it('should change selected market positions on store when some market position is changed', () => {
     const { result } = renderHook(() => useMarketPositions(), {
       wrapper,
     });

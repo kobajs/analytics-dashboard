@@ -8,6 +8,7 @@ describe('Layout', () => {
         <button>My Test</button>
       </Layout>,
     );
+
     const buttonElement = getByText('My Test');
     expect(buttonElement).toBeInTheDocument();
   });

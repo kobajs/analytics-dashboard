@@ -27,7 +27,7 @@ describe('CheckboxGroup', () => {
     expect(labelElement).toBeInTheDocument();
   });
 
-  it('should trigget onChange function when a checkbox is clicked correctly', () => {
+  it('should trigget onChange function when a checkbox is clicked', () => {
     const mockOnChange = jest.fn();
     const props = {
       ...defaultProps,

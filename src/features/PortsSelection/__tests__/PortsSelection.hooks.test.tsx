@@ -46,7 +46,7 @@ describe('usePortsSelection', () => {
     expect(result.current.options).toMatchObject(expectedOptions);
   });
 
-  it('should dispatch change port when the port is changed', () => {
+  it('should change port on store when some port is changed', () => {
     const { result } = renderHook(() => usePortsSelection(), {
       wrapper,
     });

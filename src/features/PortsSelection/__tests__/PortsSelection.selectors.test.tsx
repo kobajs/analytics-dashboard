@@ -10,7 +10,7 @@ const wrapper: FC = ({ children }) => <Provider store={store}>{children}</Provid
 // NOTE: it seems to be that is testing the library, but I'd like to do that because selectors can have some logic or derivated values
 
 describe('useAvailablePortsSelector', () => {
-  it('should get availablePorts from store ports reducer', () => {
+  it('should get available ports from store', () => {
     const availablePorts: Port[] = [
       {
         code: 'NOOSL',
@@ -43,7 +43,7 @@ describe('useAvailablePortsSelector', () => {
 });
 
 describe('useSelectedPortsSelector', () => {
-  it('should get origin and destination from store ports reducer', () => {
+  it('should get origin and destination from store', () => {
     store.getState().ports.data.origin = 'NOOSL';
     store.getState().ports.data.destination = 'CNSGH';
 
