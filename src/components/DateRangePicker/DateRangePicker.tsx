@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import moment from 'moment';
 import DateFnsUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardDatePickerProps } from '@material-ui/pickers';
 
@@ -23,6 +24,8 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({ from, to }) => {
           id="date-picker-from"
           label="From"
           inputVariant="outlined"
+          disableFuture
+          shouldDisableDate={(day) => moment(day).isAfter(to.value)}
           KeyboardButtonProps={{
             'aria-label': 'Start Date',
           }}
@@ -36,6 +39,8 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({ from, to }) => {
           id="date-picker-to"
           label="To"
           inputVariant="outlined"
+          disableFuture
+          shouldDisableDate={(day) => moment(day).isBefore(from.value)}
           KeyboardButtonProps={{
             'aria-label': 'End Date',
           }}
