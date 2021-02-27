@@ -1,3 +1,5 @@
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/kobajs/analytics-dashboard/CI/main) ![Codecov](https://img.shields.io/codecov/c/github/kobajs/analytics-dashboard)
+
 # Gist Light
 
 ## Environment Variables
@@ -39,7 +41,7 @@ To run an isolated environment to develop components:
 ### Run build
 
 To generate a compiled source code prepared for production distribution:
-
+ 
 - `npm run build`
 
 ### Run Component Generator (**PLUS**)
