@@ -64,8 +64,41 @@ Imagine that users now want to be able to download the visualization from Task 1
 
 Describe, using a couple of paragraphs, how you would solve this new user problem. If you can think of alternative solutions, describe them along with their trade-offs.
 
-Answer: 
+**Answer**
 
+1. Requirements
+  First, I would analyze if the preview feature should be implemented and if it only needs to be an image or PDF is an options. After that, confirm if some format is a requirement. This step will require the first-requirements
+  I would scratch a wireframe to validate the data visualization (even if is a copy, it's necessary for documentation) with some Product Owner/Manager supposing that it haven't a UI/UX Designer onboard. This step will describe how and what should I put as graph and legend. It will also confirm what focus point the solution should look carefully.
+
+2. Pre-development
+  I would ping my teammates, because some of them could already solved this and have some guidance through it.
+  I would investigate how can I transform a HTML into an image, if some canvas is necessary or maybe some transformation is needed.
+  I would investigate how should I do that with React, if it's possible with Refs or if it's needed to create a special hidden `<div>` to do that.
+  I would investigate open-source options since it's a common problem.
+  I would read the documentation of 3's most used solutions to check if it matches with my problem.
+  I would prioritize into: deterministic, testable, easy, delightful and offers a Library Review to my teammates with the tradeoffs.
+  I would test each solution into a simpler and isolated problem.
+  I would pick one of them and document it into some sort of company's technical documentation.
+  
+  As a possible path, if any options matches, I would learn a lot from other solutions to have a base and directions to create mine from scratch.
+
+3. Development
+  I would review the requirements and make a bullet list of it.
+    - [ ] It needs to be an image
+    - [ ] It needs to have the selected market positions
+    - [ ] It needs to have the color-legend representing the market positions
+    - [ ] It needs to have the selected dates
+    - [ ] It needs to have the graph representing all of those criterias
+  I would use TDD to test what I expect first, maybe a download button calling some function and a preview view with some data there.
+  In parallel, I would be implementing the feature.
+  I would focus on reusability because it's a known problem with high chances of. Maybe implement into an inner source package to easier that.
+  If there's some hard issue, I would choose to pair program.
+
+4. Post-development
+  I would wait the review of teammates.
+  I would wait some sort of design and product review.
+  Document the solution.
+  I would be happy to know that it's a high value problem which I contributed to solve :)
 ## Tradeoffs
 
 It's more clear to check each issue to see the design thinking about decisions.
