@@ -18,9 +18,13 @@ const defaultProps: CheckboxGroupProps = {
 
 describe('CheckboxGroup', () => {
   it('should render checkbox group correctly', () => {
-    const { getAllByRole } = render(<CheckboxGroup {...defaultProps} />);
+    const { getAllByRole, getByText } = render(<CheckboxGroup {...defaultProps} />);
+
     const checkboxGroup = getAllByRole('checkbox');
     expect(checkboxGroup.length).toBe(3);
+
+    const labelElement = getByText('Market Position');
+    expect(labelElement).toBeInTheDocument();
   });
 
   it('should trigget onChange function when a checkbox is clicked correctly', () => {

@@ -20,7 +20,7 @@ describe('PortsAPI', () => {
     process.env.REACT_APP_API_TOKEN = ApiToken;
   });
 
-  it('should use instance get on getAllPorts() with path argurment', async () => {
+  it('should use instance get on getAllPorts with path argurment', async () => {
     await new PortsAPI().getAllPorts();
     expect(mockInstanceGet).toHaveBeenCalledWith('/ports');
   });
